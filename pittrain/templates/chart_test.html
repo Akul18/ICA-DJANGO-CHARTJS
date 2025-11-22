@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chart.js Example</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<h1>Chart.js Project</h1>
+
+<script>
+    const dateLabels = [
+        {% for date in dates %}
+            "{{ date }}", 
+        {% endfor %}
+    ];
+
+    const countData = [
+        {% for count in counts %}
+            {{ count }},  
+        {% endfor %}
+    ];
+</script>
+
+<div class="chart-container">
+    <canvas id="myBarChart"></canvas>
+</div>
+<script src="{% static 'app.js' %}"></script>
+</body>
+</html>
